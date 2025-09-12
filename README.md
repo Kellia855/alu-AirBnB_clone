@@ -23,6 +23,7 @@ Clone this repository and navigate into the project folder:
 git clone https://github.com/<Kellia855>/alu-AirBnB_clone.git
 cd alu-AirBnB_clone
 
+---
 
 ### How to Use
 Start the console:
@@ -39,6 +40,7 @@ Copy code
 (hbnb) show User <id>
 (hbnb) quit
 
+---
 
 ### Examples
 
@@ -65,6 +67,8 @@ c1d1f1b1-8e8c-4d1a-92e3-123456789abc
 
 (hbnb) quit
 
+
+---
 
 ## Authors
 - **Kellia Kamikazi** - k.kamikazi@alustudent.com
