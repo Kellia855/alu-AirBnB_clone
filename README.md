@@ -71,6 +71,6 @@ c1d1f1b1-8e8c-4d1a-92e3-123456789abc
 ---
 
 ## Authors
-- **Kellia Kamikazi** - k.kamikazi@alustudent.com
-- **Yusuf Nabide** - y.nabide@alustudent.com
+**Kellia Kamikazi** - k.kamikazi@alustudent.com
+**Yusuf Nabide** - y.nabide@alustudent.com
 
