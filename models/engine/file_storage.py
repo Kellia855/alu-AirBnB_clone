@@ -1,39 +1,43 @@
 #!/usr/bin/python3
-"""This module defines FileStorage for BaseModel only"""
 
 import json
-from models.base_model import BaseModel
-
+import os
 
 class FileStorage:
-    """Serializes BaseModel instances to a JSON file and deserializes back"""
+    """Serializes instances to a JSON file & deserializes back"""
 
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """Return the dictionary of all objects"""
-        return self.__objects
+        """Return dictionary of objects"""
+        return FileStorage.__objects
 
     def new(self, obj):
-        """Add new BaseModel object to __objects with key <class name>.id"""
+        """Add new object to __objects"""
         key = f"{obj.__class__.__name__}.{obj.id}"
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """Serialize __objects to JSON file"""
-        obj_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
-        with open(self.__file_path, "w", encoding="utf-8") as f:
+        obj_dict = {
+            key: obj.to_dict() for key, obj in FileStorage.__objects.items()
+        }
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(obj_dict, f)
 
     def reload(self):
         """Deserialize JSON file to __objects"""
+        if not os.path.exists(FileStorage.__file_path):
+            return
         try:
-            with open(self.__file_path, "r", encoding="utf-8") as f:
+            with open(FileStorage.__file_path, "r") as f:
                 obj_dict = json.load(f)
-            for key, val in obj_dict.items():
-                self.__objects[key] = BaseModel(**val)
-        except FileNotFoundError:
-            # If file doesn't exist, do nothing
+            from models.base_model import BaseModel  # 
+            for key, value in obj_dict.items():
+                cls_name = value["__class__"]
+                if cls_name == "BaseModel":
+                    FileStorage.__objects[key] = BaseModel(**value)
+        except Exception:
             pass
 
