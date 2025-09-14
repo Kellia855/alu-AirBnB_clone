@@ -4,14 +4,14 @@ Console module for the AirBnB clone project
 """
 import cmd
 import sys
-from models.engine import storage
-from models.engine.base_model import BaseModel
-from models.engine.user import User
-from models.engine.state import State
-from models.engine.city import City
-from models.engine.amenity import Amenity
-from models.engine.place import Place
-from models.engine.review import Review
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):

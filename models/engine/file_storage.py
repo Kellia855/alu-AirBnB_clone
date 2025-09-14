@@ -33,7 +33,7 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, "r") as f:
                 obj_dict = json.load(f)
-            from models.engine.base_model import BaseModel  # 
+            from models.base_model import BaseModel  # 
             for key, value in obj_dict.items():
                 cls_name = value["__class__"]
                 if cls_name == "BaseModel":
