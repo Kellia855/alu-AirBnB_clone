@@ -3,8 +3,8 @@ import unittest
 from datetime import datetime
 import os
 import json
-from models.base_model import BaseModel
-from models import storage
+from models.engine.base_model import BaseModel
+from models.engine import storage
 
 
 class TestBaseModel(unittest.TestCase):
